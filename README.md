@@ -1,3 +1,5 @@
+![Travic CI status][travis-image]
+
 # Polish validators
 Validators for verifying mainly Polish ID data
 
@@ -25,3 +27,5 @@ Usage:
 
         var validators = require('validators-pl');
         var isIdNo = validators.isValidIdNo('ABC123');
+        
+[travis-image]: https://travis-ci.org/SzybkiSasza/validators-pl.svg?branch=master
