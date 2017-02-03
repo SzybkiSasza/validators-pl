@@ -12,6 +12,8 @@
   },
   "main": "lib/validators",
   "scripts": {
+    "codacy": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
+    "codeclimate": "jest --coverage && ./node-modules/codeclimate-test-reporter < ./coverage/lcov.info",
     "coverage": "jest --coverage",
     "eslint": "eslint --fix lib test",
     "test": "jest"
@@ -31,6 +33,7 @@
     "polish"
   ],
   "dependencies": {
+    "codacy-coverage": "^2.0.1",
     "codeclimate-test-reporter": "^0.4.0",
     "lodash": "^4.17.4"
   }
