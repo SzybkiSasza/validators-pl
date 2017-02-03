@@ -1,6 +1,6 @@
 'use strict';
 
-var Validators = require('../lib/validators');
+let Validators = require('../lib/validators');
 
 describe('Custom validators class', function() {
   it('should be defined class', function() {
@@ -197,19 +197,19 @@ describe('Custom validators class', function() {
 
   describe('Mask compliance checker', function() {
     it('Should return true for numbers compliant with mask', function() {
-      var number = [12, 15, 1, 2, 3, 4];
+      let number = [12, 15, 1, 2, 3, 4];
       expect(Validators.checkMaskCompliance(number, 2)).toEqual(true);
     });
 
     it('Should return false for numbers that contain improper chars',
       function() {
-        var number = [12, -1, 1, 2, 3, 4];
+        let number = [12, -1, 1, 2, 3, 4];
         expect(Validators.checkMaskCompliance(number, 2)).toEqual(false);
       });
 
     it('Should return false for numbers that do not comply to mask',
       function() {
-        var number = [12, 15, 1, 2, 3, 4];
+        let number = [12, 15, 1, 2, 3, 4];
         expect(Validators.checkMaskCompliance(number, 3)).toEqual(false);
       });
   });
@@ -217,8 +217,8 @@ describe('Custom validators class', function() {
   describe('Checksum calculator', function() {
     it('Should calculate proper checksum for given digits and weights',
       function() {
-        var digits = [10, 11, 12, 0, 1, 2];
-        var weights = [1, 2, 3, 1, 2, 3];
+        let digits = [10, 11, 12, 0, 1, 2];
+        let weights = [1, 2, 3, 1, 2, 3];
 
         expect(Validators.calculateCheckSum(digits, weights)).toEqual(76);
       });

@@ -4,5 +4,6 @@
     "es6": true,
     "jest": true
   },
-  "extends": "google"
+  "extends": "google",
+  "root": true
 }
