@@ -8,6 +8,18 @@ describe('Custom validators class', function() {
   });
 
   describe('Password validator', function() {
+    it('Should return true if password contains all required chars',
+      function() {
+        expect(Validators.isComplexPassword('Aa1@.89')).toEqual(true);
+      });
+
+    it('Should return false if no small letter is provided', function() {
+      expect(Validators.isComplexPassword('A1@.89')).toEqual(false);
+    });
+
+    it('Should return false if no big letter is provided', function() {
+      expect(Validators.isComplexPassword('a1@.89')).toEqual(false);
+    });
 
     it('Should return false if no special char is provided', function() {
       expect(Validators.isComplexPassword('a89')).toEqual(false);
