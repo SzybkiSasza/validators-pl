@@ -9,8 +9,8 @@ install:
   - npm install -g codeclimate-test-reporter
 after_success:
   - npm test
-  - npm run coverage
-  - codeclimate < ./coverage/lcov.info",
+  - npm run codacy
+  - npm run codeclimate
 
 addons:
     code_climate:
