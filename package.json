@@ -13,6 +13,7 @@
   "main": "lib/validators",
   "scripts": {
     "coverage": "jest --coverage",
+    "eslint": "eslint --fix lib test",
     "test": "jest"
   },
   "engines": {
