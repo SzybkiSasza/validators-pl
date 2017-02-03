@@ -10,7 +10,8 @@ install:
 after_success:
   - npm test
   - npm run codacy
-  - npm run codeclimate
+  - npm run coverage
+  - codeclimate-test-reporter < ./coveragelcov.info
 
 addons:
     code_climate:
