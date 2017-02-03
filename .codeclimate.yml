@@ -3,6 +3,13 @@ engines:
     enabled: true
     config:
       config: .eslintrc
+  nodesecurity:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript:
 
 ratings:
    paths:
