@@ -11,7 +11,7 @@ after_success:
   - npm test
   - npm run codacy
   - npm run coverage
-  - codeclimate-test-reporter < ./coveragelcov.info
+  - codeclimate-test-reporter < ./coverage/lcov.info
 
 addons:
     code_climate:
