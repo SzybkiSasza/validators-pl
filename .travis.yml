@@ -6,9 +6,11 @@ node_js:
 
 install:
   - npm install
+  - npm install -g codeclimate-test-reporter
 after_success:
   - npm test
-  - npm run codeclimate
+  - npm run coverage
+  - codeclimate < ./coverage/lcov.info",
 
 addons:
     code_climate:

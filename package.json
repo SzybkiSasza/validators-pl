@@ -12,7 +12,6 @@
   },
   "main": "lib/validators",
   "scripts": {
-    "codeclimate": "jest --coverage | codeclimate < ./coverage/lcov.info",
     "coverage": "jest --coverage",
     "test": "jest"
   },
