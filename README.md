@@ -1,4 +1,7 @@
 ![Travic CI status][travis-image]
+![Codacy Badge - Quality][codacy-quality]
+![Codacy Badge - Coverage][codacy-coverage]
+
 
 # Polish validators
 Validators for verifying mainly Polish ID data
@@ -37,3 +40,5 @@ Usage:
   ```
 
 [travis-image]: https://travis-ci.org/SzybkiSasza/validators-pl.svg?branch=master
+[codacy-quality]: https://api.codacy.com/project/badge/Grade/8a97aec25ae949f5adbe5d1b9d6b00ad
+[codacy-coverage]: https://api.codacy.com/project/badge/Coverage/8a97aec25ae949f5adbe5d1b9d6b00ad
