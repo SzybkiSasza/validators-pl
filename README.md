@@ -23,7 +23,7 @@ This module requires `NodeJS >=4.0.0` to work! (it uses some of the ES6 spec)
 
 Usage:
   1. Import validators to your project: `npm install --save validators-pl`
-  3. Include this module inside your code and use as below:
+  2. Include this module inside your code and use as below:
 
   ```javascript
   const validators = require('validators-pl');
