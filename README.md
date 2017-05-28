@@ -22,17 +22,8 @@ npm run coverage
 This module requires `NodeJS >=4.0.0` to work! (it uses some of the ES6 spec)
 
 Usage:
-  1. Import module inside your project (in package.json):
-
-  ```json
-  { "dependencies" : {
-      "validators-pl": "SzybkiSasza/validators-pl"
-    }
-  }  
-  ```
-  
-  2. `npm install`
-  3. Include this module inside your code and use as below:
+  1. Import validators to your project: `npm install --save validators-pl`
+  2. Include this module inside your code and use as below:
 
   ```javascript
   const validators = require('validators-pl');
