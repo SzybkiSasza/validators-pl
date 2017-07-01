@@ -1,26 +1,20 @@
 language: node_js
-
 node_js:
 - '6'
-
 cache:
   yarn: true
-
 install:
 - npm i
-
 script:
 - npm run lint
 - npm run codacy
-
 before_deploy:
 - npm run build
-
 deploy:
   provider: npm
-  email: 'bartosz.polanczyk@gmail.com'
+  email: bartosz.polanczyk@gmail.com
   api_key:
-    secure: B8exSR5Om8MxzRL5aCz5gPP7yhBordldHiRVh/6yQX4JyVOC2ntDLss9KLVmRpHGts9sG5fPBC9vAo0DCgqIBsVmicGK5juGA++r3Mx5S86FylM6jiBtdlM7ZOouhR3aY8fuR25DFqGpp2Ie9oFsJEG6nDZDSkHzYFZW6wPW6drq7yxfY9PqMFs4VB3tFRiNc5d8GjO19TS2R6QTD3+VCdRYXBuJuAWaNNdS1h+Fi3ynIk/6Akxk15lMyeIRiG67w/pQSx5utgBEgdHaqbIRrWwPHgVH20jVsjZQ8Lqg9ssWgCxt08ZzQgWRn0DRdz3FJcI6Ffa2/sNINbPygJwwGmwJIcx0+S7JIlB8IPwYmk+N+fLMp8UV20HpwV+MoGvlkED7QTajtrMEEzIkxnGxkGZi2npgfwnImxaGUtSXTj3QyTJ2ELxwJHq3yK8G3XSfT5RVR/9iXTKaD+bbb+hOOtwguN1m3X9N06fROeSA5jFIE7Qdb7JL+1G2IQlggrI0TXazq3s7amFRME0Lq8kn/4dQ/DcEMDjWVneCQf4Eaa+UyQWJpk91gWw/JtDi5FasPGsLN3BLPSmwFuDc/c4jLtQtWFbPXlU3yVhEAuFSauiH/Yyz6oMa9PqqzAiHzb7JHYB53S9Q33vJ/g5A8tidJhqUBQGYJdHWRTl8WZizIWw=
+    secure: BKQjkW263t6n+TqSntCB7Dm6Kw5AAyhBT9Q5FwckH8x/OBdtigm/L3FlHoxpWovThU1O9NWRNcnUAKspJVJ/yhbKT2reEZAKffLRpHKVqUwxFwExqCwyjY4+U4R8zTFTj8IyZp06fIoXWOdCIgjE96vsKUY/xqrYsDCSKHqPkgrUnuZZkXqlfOjZe4jSJEfvEmDf75fEgmVsuPcTjQePMX71SHFdtNToKimHKg+vBctkMSXeGY3lmdH+/0VcUgc6lFnAd/TbBsO/dDu/3Vq8+iFanBJaOjYU2XBl6bcKiaRTkP8hByJTXAbORNsZWQiF1SHPNb+j6BVIPwaGlPQ9niY6Twc+L/vQCFvXaT0jS+kA5RkKhQmlwrsGsV03Uzido6P3w3lZkEs7FJ4pTAsqzOqE2R20qPb/ImckpdIOQl+PK58yLrY70W72uMx2UYZo2ZifJ4Xk4wwXUVNESE9PPWjDydN4RYsNGC0IABrO997eNbOE+2Xsc8FU9c++o88AL1Cd/4jFqqUNtqoP3/WJdmJcHrFEkJceL9zTczsBgMZ5YJ5h1pFwOAkWbGWibzjX1oz37qiYj9OurODrQJpryXF8OHXVdzR07TjMNmEIFtHEGHvK5YChG4UqwUkivK0xPaOVd4VPbXWoyHr4WFzIN+XJOXK0vYJBr8uoJPlwFYw=
   on:
     branch: master
   skip_cleanup: true
