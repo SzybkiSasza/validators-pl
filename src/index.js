@@ -1,8 +1,18 @@
+import {isString} from 'lodash';
 
+import {
+  calculateCheckSum,
+  transformCharacters,
+  checkMaskCompliance,
+  checkIdValidity,
+} from './utils';
 
 /**
- * Checks if password contains required characters.
- * Required are one digit, special char and uppercase and lowercase letters
+ * Simple checker for password characters
+ * Requirements:
+ *  - one digit
+ *  - one special character
+ *  - uppercase and lowercase letters
  *
  * @param  {String}  password Password String
  * @return {Boolean}          result of check
@@ -154,3 +164,15 @@ export function isValidNip(nip) {
 
   return false;
 }
+
+export default {
+  isComplexPassword,
+  isName,
+  isLocationNumber,
+  isPostCode,
+  isCompliantWithPesel,
+  isValidPesel,
+  isValidIdNo,
+  isValidPassportNo,
+  isValidNip,
+};
