@@ -57,6 +57,10 @@ describe('Polish validators - main file', () => {
     it('Returns true immediately for numbers', () => {
       expect(validators.isLocationNumber(123)).toEqual(true);
     });
+
+    it('Returns false for numbers that are not strings or numbers', () => {
+      expect(validators.isLocationNumber([])).toEqual(false);
+    });
   });
 
   describe('Postcode validator', () => {
@@ -89,100 +93,88 @@ describe('Polish validators - main file', () => {
         .toEqual(false);
     });
   });
-  //
-  // describe('PESEL number validator', () => {
-  //   it('Should return true if checksum is computed properly (valid one)',
-  //     () => {
-  //       expect(validators.isValidPesel('49040501580')).toEqual(true);
-  //     });
-  //
-  //   it('Should return false if it does not comply to the mask 00000000000',
-  //     () => {
-  //       expect(validators.isValidPesel('123456')).toEqual(false);
-  //       expect(validators.isValidPesel('12B456U890E')).toEqual(false);
-  //     });
-  //
-  //   it('Should return false if checksum is wrong', () => {
-  //     expect(validators.isValidPesel('46040501580')).toEqual(false);
-  //   });
-  // });
-  //
-  // describe('ID number validator', () => {
-  //   it('Should return true if checksum is computed properly (valid one)',
-  //     () => {
-  //       expect(validators.isValidIdNo('AXZ043405')).toEqual(true);
-  //       expect(validators.isValidIdNo('ACE243027')).toEqual(true);
-  //       expect(validators.isValidIdNo('AYF458741')).toEqual(true);
-  //     });
-  //
-  //   it('Should return false if number has incorrect length', () => {
-  //     expect(validators.isValidIdNo('AXZ04340')).toEqual(false);
-  //   });
-  //
-  //   it('Should return false if number contains restricted characters',
-  //     () => {
-  //       expect(validators.isValidIdNo('AXZ0434#5')).toEqual(false);
-  //     });
-  //
-  //   it('Should return false if number does not comply to mask AAA000000',
-  //     () => {
-  //       expect(validators.isValidIdNo('A5Z043405')).toEqual(false);
-  //       expect(validators.isValidIdNo('AXZ04A405')).toEqual(false);
-  //     });
-  //
-  //   it('Should return false if checksum is incorrect',
-  //     () => {
-  //       expect(validators.isValidIdNo('AXY043405')).toEqual(false);
-  //     });
-  // });
-  //
-  // describe('Passport number validator', () => {
-  //   it('Should return true if checksum is computed properly (valid one)',
-  //     () => {
-  //       expect(validators.isValidPassportNo('MW3066805')).toEqual(true);
-  //       expect(validators.isValidPassportNo('KN7958468')).toEqual(true);
-  //       expect(validators.isValidPassportNo('OK6073778')).toEqual(true);
-  //     });
-  //
-  //   it('Should return false if number has incorrect length', () => {
-  //     expect(validators.isValidPassportNo('XE607262')).toEqual(false);
-  //   });
-  //
-  //   it('Should return false if number contains restricted characters',
-  //     () => {
-  //       expect(validators.isValidPassportNo('XE60#2626')).toEqual(false);
-  //     });
-  //
-  //   it('Should return false if number does not comply to mask AA0000000',
-  //     () => {
-  //       expect(validators.isValidPassportNo('5E6072626')).toEqual(false);
-  //       expect(validators.isValidPassportNo('XE607G626')).toEqual(false);
-  //     });
-  //
-  //   it('Should return false if checksum is incorrect',
-  //     () => {
-  //       expect(validators.isValidPassportNo('XE6172626')).toEqual(false);
-  //     });
-  // });
-  //
-  // describe('NIP number validator', () => {
-  //   it('Should return true if checksum is computed properly (valid one)',
-  //     () => {
-  //       expect(validators.isValidNip('4375003084')).toEqual(true);
-  //     });
-  //
-  //   it('Should return false if it does not comply to the mask 0000000000',
-  //     () => {
-  //       expect(validators.isValidNip('437500384')).toEqual(false);
-  //       expect(validators.isValidNip('43B5003Y84')).toEqual(false);
-  //     });
-  //
-  //   it('Should return false if checksum is wrong', () => {
-  //     expect(validators.isValidNip('4375103084')).toEqual(false);
-  //   });
-  //
-  //   it('Should return false if NIP is not present', () => {
-  //     expect(validators.isValidNip()).toEqual(false);
-  //   });
-  // });
+
+  describe('PESEL number validator', () => {
+    it('Returns true if checksum is computed properly (valid one)', () => {
+      expect(validators.isValidPesel('49040501580')).toEqual(true);
+    });
+
+    it('Returns false if it does not comply to the mask 00000000000', () => {
+      expect(validators.isValidPesel('123456')).toEqual(false);
+      expect(validators.isValidPesel('12B456U890E')).toEqual(false);
+    });
+
+    it('Returns false if checksum is wrong', () => {
+      expect(validators.isValidPesel('46040501580')).toEqual(false);
+    });
+  });
+
+  describe('ID number validator', () => {
+    it('Returns true if checksum is computed properly (valid one)', () => {
+      expect(validators.isValidIdNo('AXZ043405')).toEqual(true);
+      expect(validators.isValidIdNo('ACE243027')).toEqual(true);
+      expect(validators.isValidIdNo('AYF458741')).toEqual(true);
+    });
+
+    it('Returns false if number has incorrect length', () => {
+      expect(validators.isValidIdNo('AXZ04340')).toEqual(false);
+    });
+
+    it('Returns false if number contains restricted characters', () => {
+      expect(validators.isValidIdNo('AXZ0434#5')).toEqual(false);
+    });
+
+    it('Returns false if number does not comply to mask AAA000000', () => {
+      expect(validators.isValidIdNo('A5Z043405')).toEqual(false);
+      expect(validators.isValidIdNo('AXZ04A405')).toEqual(false);
+    });
+
+    it('Returns false if checksum is incorrect', () => {
+      expect(validators.isValidIdNo('AXY043405')).toEqual(false);
+    });
+  });
+
+  describe('Passport number validator', () => {
+    it('Returns true if checksum is computed properly (valid one)', () => {
+      expect(validators.isValidPassportNo('MW3066805')).toEqual(true);
+      expect(validators.isValidPassportNo('KN7958468')).toEqual(true);
+      expect(validators.isValidPassportNo('OK6073778')).toEqual(true);
+    });
+
+    it('Returns false if number has incorrect length', () => {
+      expect(validators.isValidPassportNo('XE607262')).toEqual(false);
+    });
+
+    it('Returns false if number contains restricted characters', () => {
+      expect(validators.isValidPassportNo('XE60#2626')).toEqual(false);
+    });
+
+    it('Returns false if number does not comply to mask AA0000000', () => {
+      expect(validators.isValidPassportNo('5E6072626')).toEqual(false);
+      expect(validators.isValidPassportNo('XE607G626')).toEqual(false);
+    });
+
+    it('Returns false if checksum is incorrect', () => {
+      expect(validators.isValidPassportNo('XE6172626')).toEqual(false);
+    });
+  });
+
+  describe('NIP number validator', () => {
+    it('Returns true if checksum is computed properly (valid one)', () => {
+      expect(validators.isValidNip('4375003084')).toEqual(true);
+    });
+
+    it('Returns false if it does not comply to the mask 0000000000', () => {
+      expect(validators.isValidNip('437500384')).toEqual(false);
+      expect(validators.isValidNip('43B5003Y84')).toEqual(false);
+    });
+
+    it('Returns false if checksum is wrong', () => {
+      expect(validators.isValidNip('4375103084')).toEqual(false);
+    });
+
+    it('Returns false if NIP is not present', () => {
+      expect(validators.isValidNip()).toEqual(false);
+    });
+  });
 });

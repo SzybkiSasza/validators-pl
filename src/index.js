@@ -1,9 +1,7 @@
-import {isNumber, isString} from 'lodash';
+import {dropRight, isNaN, isNumber, isString} from 'lodash';
 
 import {
   calculateCheckSum,
-  transformCharacters,
-  checkMaskCompliance,
   checkIdValidity,
 } from './utils';
 
@@ -37,7 +35,7 @@ export function isName(name) {
 /**
  * Checks if provided string is location (street or flat) number.
  *
- * @param  {String}  number Number to check (HAS to be String)
+ * @param  {Number|String}  number Number to check (HAS to be String)
  * @return {Boolean}        result of check
  */
 export function isLocationNumber(number) {
@@ -73,7 +71,8 @@ export function isPostalCode(postCode) {
 export function isCompliantWithPesel(date, pesel) {
   date = new Date(date);
 
-  if (isNumber(date.getTime())) {
+  const dateTime = date.getTime();
+  if (isNumber(dateTime) && !isNaN(dateTime)) {
     const peselPart = pesel.substr(0, 6);
     const fullYear = date.getFullYear();
 
@@ -101,12 +100,12 @@ export function isValidPesel(pesel) {
   let reg = /^[0-9]{11}$/;
 
   if (isString(pesel) && reg.test(pesel)) {
-    let digits = pesel.split('');
-    let checkSumDigits = dropRight(digits);
+    const digits = pesel.split('');
+    const checkSumDigits = dropRight(digits);
 
     // Map each pesel digit using proper weight
-    let checkSum = this
-      .calculateCheckSum(checkSumDigits, [1, 3, 7, 9, 1, 3, 7, 9, 1, 3]) % 10;
+    let checkSum =
+      calculateCheckSum(checkSumDigits, [1, 3, 7, 9, 1, 3, 7, 9, 1, 3]) % 10;
     checkSum = (10 - checkSum) % 10;
 
     return Number(digits[10]) === checkSum;
@@ -122,7 +121,7 @@ export function isValidPesel(pesel) {
  * @return {Boolean}      result of check
  */
 export function isValidIdNo(idNo) {
-  return this.checkIdValidity(idNo, [7, 3, 1, 9, 7, 3, 1, 7, 3], 3);
+  return checkIdValidity(idNo, [7, 3, 1, 9, 7, 3, 1, 7, 3], 3);
 }
 
 /**
@@ -133,7 +132,7 @@ export function isValidIdNo(idNo) {
  * @return {Boolean}            result of check
  */
 export function isValidPassportNo(passportNo) {
-  return this.checkIdValidity(passportNo, [7, 3, 9, 1, 7, 3, 1, 7, 3], 2);
+  return checkIdValidity(passportNo, [7, 3, 9, 1, 7, 3, 1, 7, 3], 2);
 }
 
 /**
@@ -147,14 +146,15 @@ export function isValidNip(nip) {
   if (!nip) {
     return false;
   }
-  let nipNumber = nip.replace(/-/g, '');
-  let reg = /^[0-9]{10}$/;
+
+  const nipNumber = nip.replace(/-/g, '');
+  const reg = /^[0-9]{10}$/;
 
   if (reg.test(nipNumber)) {
-    let digits = nipNumber.split('');
-    let checkSumDigits = dropRight(digits);
-    let checkSum = this
-      .calculateCheckSum(checkSumDigits, [6, 5, 7, 2, 3, 4, 5, 6, 7]) % 11;
+    const digits = nipNumber.split('');
+    const checkSumDigits = dropRight(digits);
+    const checkSum =
+      calculateCheckSum(checkSumDigits, [6, 5, 7, 2, 3, 4, 5, 6, 7]) % 11;
 
     return Number(digits[9]) === checkSum;
   }
