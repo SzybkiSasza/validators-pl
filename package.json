@@ -12,11 +12,11 @@
   },
   "main": "lib",
   "scripts": {
-    "build": "babel src -d lib --ignore *.test.js",
+    "build": "rm -rf ./lib && babel src -d lib --ignore *.test.js",
     "coverage": "jest --coverage",
     "codacy": "npm run coverage && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage",
     "lint": "eslint --fix src",
-    "prepublish": "rm -rf ./lib && npm run build",
+    "prepublish": "npm run build",
     "test": "jest"
   },
   "engines": {
