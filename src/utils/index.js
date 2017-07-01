@@ -1,4 +1,4 @@
-import {map, reduce, zip} from 'lodash';
+import {indexOf, map, reduce, zip} from 'lodash';
 
 // Letter values array used in passport/id checks
 const letterValues = [
@@ -32,9 +32,7 @@ export function calculateCheckSum(digitsArray, weights) {
  * @return {Array}        Corresponding numerical values in character table
  */
 export function transformCharacters(number) {
-  return map(number.toUpperCase().split(''),
-    (v) => indexOf(letterValues, v)
-  );
+  return map(number.toUpperCase().split(''), (v) => indexOf(letterValues, v));
 }
 
 /**
@@ -46,13 +44,12 @@ export function transformCharacters(number) {
  * @return {Boolean}             Result of check
  */
 export function checkMaskCompliance(number, seriesLength) {
-  return reduce(number, function(result, val, index) {
-    if ((val === -1) ||
-      !((index < seriesLength && val >= 10) ||
-        (index >= seriesLength && val < 10))) {
-      return false;
-    }
-    return result;
+  return reduce(number, (result, val, index) => {
+    const isInvalidLetter = val === -1 ||
+      (index < seriesLength && val < 10) ||
+      (index >= seriesLength && val >= 10);
+
+    return result && !isInvalidLetter;
   }, true);
 }
 
