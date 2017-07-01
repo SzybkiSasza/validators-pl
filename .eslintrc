@@ -1,9 +1,10 @@
 {
   "env": {
-    "node": true,
     "es6": true,
-    "jest": true
+    "jest": true,
+    "node": true
   },
   "extends": "google",
+  "parser": "babel-eslint",
   "root": true
 }
