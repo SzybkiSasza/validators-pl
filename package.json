@@ -1,6 +1,6 @@
 {
   "name": "validators-pl",
-  "description": "A few validators for polish data (mostly id's)",
+  "description": "Validators for polish address and ID data",
   "version": "0.1.0",
   "author": {
     "name": "Bartek Polanczyk"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git@github.com:SzybkiSasza/validators-pl.git"
   },
-  "main": "lib/validators",
+  "main": "lib",
   "scripts": {
     "build": "babel src -d lib --ignore *.test.js",
     "coverage": "jest --coverage",
@@ -36,7 +36,7 @@
   "keywords": [
     "validator",
     "passport",
-    "paszport"
+    "paszport",
     "address",
     "adres",
     "polish",
@@ -48,5 +48,11 @@
     "babel-runtime": "^6.23.0",
     "codacy-coverage": "^2.0.2",
     "lodash": "^4.17.4"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "lib"
+    ]
   }
 }
