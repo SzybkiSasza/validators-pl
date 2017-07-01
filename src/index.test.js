@@ -41,24 +41,23 @@ describe('Polish validators - main file', () => {
       expect(validators.isName('Żelisł@w III')).toEqual(false);
     });
   });
-  //
-  // describe('Location (flat, street) number validator', () => {
-  //   it('Should return true if number complies to numbering convention',
-  //     () => {
-  //       expect(validators.isLocationNumber('123/4B')).toEqual(true);
-  //       expect(validators.isLocationNumber('123\\4B')).toEqual(true);
-  //       expect(validators.isLocationNumber('123.4B')).toEqual(true);
-  //       expect(validators.isLocationNumber('123-4A')).toEqual(true);
-  //     });
-  //
-  //   it('Should return false if number contains restricted chars', () => {
-  //     expect(validators.isLocationNumber('123@4B')).toEqual(false);
-  //   });
-  //
-  //   it('Should return true if number is empty', () => {
-  //     expect(validators.isLocationNumber('')).toEqual(true);
-  //   });
-  // });
+
+  describe('Location (flat, street) number validator', () => {
+    it('Returns true if number complies to numbering convention', () => {
+      expect(validators.isLocationNumber('123/4B')).toEqual(true);
+      expect(validators.isLocationNumber('123\\4B')).toEqual(true);
+      expect(validators.isLocationNumber('123.4B')).toEqual(true);
+      expect(validators.isLocationNumber('123-4A')).toEqual(true);
+    });
+
+    it('Returns false if number contains restricted chars', () => {
+      expect(validators.isLocationNumber('123@4B')).toEqual(false);
+    });
+
+    it('Returns true immediately for numbers', () => {
+      expect(validators.isLocationNumber(123)).toEqual(true);
+    });
+  });
   //
   // describe('Postcode validator', () => {
   //   it('Should return true if postcode matches XX-XXX mask', () => {

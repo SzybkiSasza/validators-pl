@@ -1,4 +1,4 @@
-import {isString} from 'lodash';
+import {isNumber, isString} from 'lodash';
 
 import {
   calculateCheckSum,
@@ -46,9 +46,6 @@ export function isLocationNumber(number) {
   }
 
   if (isString(number)) {
-    if (number.length === 0) { // Fix for flat numbers - could be empty
-      return true;
-    }
     return /^[\da-zA-Z\\/.-]+$/.test(number);
   }
 
