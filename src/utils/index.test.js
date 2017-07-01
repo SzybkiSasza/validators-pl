@@ -60,7 +60,8 @@ describe('Validator utils tests', () => {
     });
 
     it('Returns false if ID number does not comply to the mask', () => {
-      expect(utils.checkIdValidity('A123', [1, 2, 3, 4], 2)).toEqual(false);
+      expect(utils.checkIdValidity('A12345678', [1, 2, 3, 4], 2))
+        .toEqual(false);
     });
 
     it('Returns true if ID number meets the checksum', () => {
@@ -87,7 +88,7 @@ describe('Validator utils tests', () => {
         3
       );
 
-      expect(id).toEqual('AYE123456');
+      expect(id).toEqual('AYE623456');
     });
   });
 });
