@@ -58,38 +58,37 @@ describe('Polish validators - main file', () => {
       expect(validators.isLocationNumber(123)).toEqual(true);
     });
   });
-  //
-  // describe('Postcode validator', () => {
-  //   it('Should return true if postcode matches XX-XXX mask', () => {
-  //     expect(validators.isPostCode('00-800')).toEqual(true);
-  //   });
-  //
-  //   it('Should return false if postcode contains restricted chars',
-  //     () => {
-  //       expect(validators.isPostCode('AB-CDE')).toEqual(false);
-  //     });
-  //
-  //   it('Should return false if postcode does not match XX-XXX mask',
-  //     () => {
-  //       expect(validators.isPostCode('435-5435')).toEqual(false);
-  //     });
-  // });
-  //
-  // describe('Date compliance with PESEL validator', () => {
-  //   it('Should return true if date is compliant with PESEL', () => {
-  //     expect(validators.isCompliantWithPesel('1949-04-05', '49040501580'))
-  //       .toEqual(true);
-  //   });
-  //   it('Should return false if provided date cannot be converted to Date',
-  //     () => {
-  //       expect(validators.isCompliantWithPesel('Afasf', '49040501580'))
-  //         .toEqual(false);
-  //     });
-  //   it('Should return false if date is not compliant with PESEL', () => {
-  //     expect(validators.isCompliantWithPesel('1949-04-08', '49040501580'))
-  //       .toEqual(false);
-  //   });
-  // });
+
+  describe('Postcode validator', () => {
+    it('Returns true if postcode matches XX-XXX mask', () => {
+      expect(validators.isPostalCode('00-800')).toEqual(true);
+    });
+
+    it('Returns false if postcode contains restricted chars', () => {
+      expect(validators.isPostalCode('AB-CDE')).toEqual(false);
+    });
+
+    it('Returns false if postcode does not match XX-XXX mask', () => {
+      expect(validators.isPostalCode('435-5435')).toEqual(false);
+    });
+  });
+
+  describe('Date compliance with PESEL validator', () => {
+    it('Returns true if date is compliant with PESEL', () => {
+      expect(validators.isCompliantWithPesel('1949-04-05', '49040501580'))
+        .toEqual(true);
+    });
+
+    it('Returns false if provided date cannot be converted to Date', () => {
+      expect(validators.isCompliantWithPesel('Afasf', '49040501580'))
+        .toEqual(false);
+    });
+
+    it('Returns false if date is not compliant with PESEL', () => {
+      expect(validators.isCompliantWithPesel('1949-04-08', '49040501580'))
+        .toEqual(false);
+    });
+  });
   //
   // describe('PESEL number validator', () => {
   //   it('Should return true if checksum is computed properly (valid one)',

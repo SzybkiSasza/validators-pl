@@ -58,7 +58,7 @@ export function isLocationNumber(number) {
  * @param  {String}  postCode Given postcode
  * @return {Boolean}          result of check
  */
-export function isPostCode(postCode) {
+export function isPostalCode(postCode) {
   return isString(postCode) && /^\d{2}-\d{3}$/.test(postCode);
 }
 
@@ -74,14 +74,14 @@ export function isCompliantWithPesel(date, pesel) {
   date = new Date(date);
 
   if (isNumber(date.getTime())) {
-    let peselPart = pesel.substr(0, 6);
-    let fullYear = date.getFullYear();
+    const peselPart = pesel.substr(0, 6);
+    const fullYear = date.getFullYear();
 
     // Prepare proper month sum. 19xx - 0, 20xx - 20, 21xx - 40 and so on
-    let monthSum = 20 * ((Number(fullYear.toString().substr(0, 2))) - 19);
+    const monthSum = 20 * ((Number(fullYear.toString().substr(0, 2))) - 19);
 
     // Build date part for comparison with PESEL
-    let datePart = String(fullYear.toString().substr(2, 2)) +
+    const datePart = String(fullYear.toString().substr(2, 2)) +
       ('0' + (date.getMonth() + 1 + monthSum).toString()).slice(-2) +
       ('0' + date.getDate().toString()).slice(-2);
 
@@ -166,7 +166,7 @@ export default {
   isComplexPassword,
   isName,
   isLocationNumber,
-  isPostCode,
+  isPostalCode,
   isCompliantWithPesel,
   isValidPesel,
   isValidIdNo,
