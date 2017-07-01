@@ -4,6 +4,9 @@
 
 
 # Polish validators
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8a97aec25ae949f5adbe5d1b9d6b00ad)](https://www.codacy.com/app/SzybkiSasza/validators-pl?utm_source=github.com&utm_medium=referral&utm_content=SzybkiSasza/validators-pl&utm_campaign=badger)
+
 Validators for verifying mainly Polish ID data
 
 Library consists of two validator types:
