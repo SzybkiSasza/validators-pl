@@ -12,9 +12,11 @@
   },
   "main": "lib/validators",
   "scripts": {
-    "codacy": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
+    "build": "babel src -d lib --ignore *.test.js",
     "coverage": "jest --coverage",
-    "eslint": "eslint --fix lib test",
+    "codacy": "npm run coverage && cat ./coverage/lcov.info | codacy-coverage && rm -rf ./coverage",
+    "lint": "eslint --fix src",
+    "prepublish": "rm -rf ./lib && npm run build",
     "test": "jest"
   },
   "engines": {

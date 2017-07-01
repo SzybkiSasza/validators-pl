@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    ["transform-runtime"]
+  ],
+  "presets": [
+    ["env", {
+      "targets": {
+        "node": "current",
+        "browsers": ["last 2 versions"]
+      }
+    }],
+    "babili"
+  ]
+}
