@@ -49,4 +49,45 @@ describe('Validator utils tests', () => {
       expect(utils.checkMaskCompliance(number, 3)).toEqual(false);
     });
   });
+
+  describe('Generci ID validity checker', () => {
+    it('Returns false if id number is missing', () => {
+      expect(utils.checkIdValidity()).toEqual(false);
+    });
+
+    it('Returns false if the ID length is not a correct value', () => {
+      expect(utils.checkIdValidity('A123')).toEqual(false);
+    });
+
+    it('Returns false if ID number does not comply to the mask', () => {
+      expect(utils.checkIdValidity('A123', [1, 2, 3, 4], 2)).toEqual(false);
+    });
+
+    it('Returns true if ID number meets the checksum', () => {
+      expect(utils.checkIdValidity(
+        'DUP623456',
+        [7, 3, 1, 9, 7, 3, 1, 7, 3],
+        3
+      )).toEqual(true);
+    });
+
+    it('Returns false if ID number does not meet the checksum', () => {
+      expect(utils.checkIdValidity(
+        'DUP123456',
+        [7, 3, 1, 9, 7, 3, 1, 7, 3],
+        3
+      )).toEqual(false);
+    });
+
+    it('Does not mutate the input', () => {
+      const id = 'AYE623456';
+      utils.checkIdValidity(
+        id,
+        [7, 3, 1, 9, 7, 3, 1, 7, 3],
+        3
+      );
+
+      expect(id).toEqual('AYE123456');
+    });
+  });
 });

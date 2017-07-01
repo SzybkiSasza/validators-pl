@@ -11,10 +11,10 @@ const letterValues = [
 /**
  * Calculates checksum for all the digits in particular ID
  *
- * @param  {array} digitsArray Array of digits (already transformed by
- *                             transformCharacters)
- * @param  {Array} weights     Array of weights of each digit
- * @return {Number}            Resulting checksum
+ * @param  {array} digitsArray  Array of digits (already transformed by
+ *                              transformCharacters)
+ * @param  {Array} weights      Array of weights of each digit
+ * @return {Number}             Resulting checksum
  */
 export function calculateCheckSum(digitsArray, weights) {
   const checkSum = map(zip(digitsArray, weights), (values) =>
@@ -28,8 +28,8 @@ export function calculateCheckSum(digitsArray, weights) {
 /**
  * Transforms id character into particular mapped value
  *
- * @param  {String} number Characters to transform
- * @return {Array}        Corresponding numerical values in character table
+ * @param  {String} number  Characters to transform
+ * @return {Array}          Corresponding numerical values in character table
  */
 export function transformCharacters(number) {
   return map(number.toUpperCase().split(''), (v) => indexOf(letterValues, v));
@@ -39,9 +39,9 @@ export function transformCharacters(number) {
  * Checks if number complies to simple mask check in the style "XXX11111"
  * Where XXX is series part (letter values in fron of id number)
  *
- * @param  {String} number       Given id number
- * @param  {Number} seriesLength Length of series denominator
- * @return {Boolean}             Result of check
+ * @param  {String} number        Given id number
+ * @param  {Number} seriesLength  Length of series denominator
+ * @return {Boolean}              Result of check
  */
 export function checkMaskCompliance(number, seriesLength) {
   return reduce(number, (result, val, index) => {
@@ -56,9 +56,9 @@ export function checkMaskCompliance(number, seriesLength) {
 /**
  * Generic checker for id types (personal id, passport etc.)
  *
- * @param  {String} idNo         Given id number
- * @param  {array} weights      Weights of particular characters to test id
- * @param  {Number} seriesLength Length of series part
+ * @param  {String} idNo          Given id number
+ * @param  {array} weights        Weights of particular characters to test id
+ * @param  {Number} seriesLength  Length of series part
  * @return {Boolean}              Result of check
  */
 export function checkIdValidity(idNo, weights, seriesLength) {
