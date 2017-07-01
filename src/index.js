@@ -24,8 +24,8 @@ export function isComplexPassword(password) {
  * Checks whether provided string complies to polish firstname/lastname
  * requirements
  *
- * @param  {String}  name Name string
- * @return {Boolean}      result of check
+ * @param  {String}  name   Name string
+ * @return {Boolean}        result of check
  */
 export function isName(name) {
   return isString(name) &&
@@ -35,16 +35,16 @@ export function isName(name) {
 /**
  * Checks if provided string is location (street or flat) number.
  *
- * @param  {Number|String}  number Number to check (HAS to be String)
- * @return {Boolean}        result of check
+ * @param  {Number|String}  locationNumber  Number to check (HAS to be String)
+ * @return {Boolean}                        result of check
  */
-export function isLocationNumber(number) {
-  if (isNumber(number)) {
+export function isLocationNumber(locationNumber) {
+  if (isNumber(locationNumber)) {
     return true;
   }
 
-  if (isString(number)) {
-    return /^[\da-zA-Z\\/.-]+$/.test(number);
+  if (isString(locationNumber)) {
+    return /^[\da-zA-Z\\/.-]+$/.test(locationNumber);
   }
 
   return false;
@@ -64,9 +64,8 @@ export function isPostalCode(postCode) {
  * Checks if provided date (birth date) is compliant with PESEL
  *
  * @param  {String|Date}  date  Birth date
- * @param  {String}  pesel PESEL to check date against
- *
- * @return {Boolean}       result of check
+ * @param  {String}       pesel PESEL to check date against
+ * @return {Boolean}            result of check
  */
 export function isCompliantWithPesel(date, pesel) {
   date = new Date(date);
