@@ -14,6 +14,35 @@ The library code is minified. For the original code, please refer to the GitHub 
 
 Library methods are exposed both as classic `module.exports` and `ES6 exports`.
 
+## Adding to a project
+
+To use library, install it with `npm` or `yarn`:
+
+ - `npm i --save validators-pl`
+ - `yarn add validators-pl`
+
+### Standard module imports
+
+For the standard environment, use `require` or `amd`:
+
+```javascript
+
+const validators = require('validators-pl');
+const isValidPesel = validators.isValidPesel(89101012345);
+
+```
+
+### ES6 imports
+
+Using ES6 imports, you can include only the part of library that you need (which is useful for tree shaking and minifying, supported by tools like `Webpack`):
+
+```javascript
+
+import {isValidPesel} from 'validators-pl';
+const isValidPesel = isValidPesel(89101012345);
+
+```
+
 ## Available validators
 
 Provided validators are related only to polish ID data.
